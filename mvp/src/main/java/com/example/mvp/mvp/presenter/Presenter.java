@@ -1,5 +1,7 @@
 package com.example.mvp.mvp.presenter;
 
+import android.util.Log;
+
 import com.example.mvp.mvp.model.IMdel;
 import com.example.mvp.mvp.model.IModel;
 import com.example.mvp.mvp.view.IView;
@@ -10,10 +12,19 @@ public class Presenter implements IPresenter {
 
     @Override
     public void getmod() {
-        iModel.ipre(new IModel.CallBack() {
-            @Override
-            public void callche() {
 
+    }
+
+    @Override
+    public void getbang(final IView iView) {
+        this.iView = iView;
+        iModel = new IMdel();
+        iModel.ipre(new IModel.CallBack() {
+
+            @Override
+            public void callche(String json) {
+                iView.getshow(json);
+                Log.d("xxx", json);
             }
 
             @Override
@@ -21,17 +32,11 @@ public class Presenter implements IPresenter {
 
             }
         });
-    }
-
-    @Override
-    public void getbang(IView iView) {
-        this.iView = iView;
-        iModel = new IMdel();
 
     }
 
     @Override
-    public void getjie(IView iView) {
+    public void getjie() {
         if (iView != null) {
             iView = null;
         }

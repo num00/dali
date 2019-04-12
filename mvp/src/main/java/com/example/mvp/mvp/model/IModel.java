@@ -4,7 +4,7 @@ public interface IModel {
     void ipre(CallBack callBack);
 
     interface CallBack {
-        void callche();
+        void callche(String json);
 
         void callshi();
     }

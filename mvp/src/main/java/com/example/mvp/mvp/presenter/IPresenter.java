@@ -7,5 +7,5 @@ public interface IPresenter {
 
     void getbang(IView iView);
 
-    void getjie(IView iView);
+    void getjie( );
 }
